@@ -1,6 +1,6 @@
 
 
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import { TbEdit } from "react-icons/tb";
 import { MdDelete, MdCancel } from "react-icons/md";
 import { FaCheck } from "react-icons/fa";
@@ -12,7 +12,7 @@ export default function TodoApp() {
   const [editText, setEditText] = useState("");
 
   const addTask = () => {
-    if (input.trim() === "") return;
+    if (input === "") return;
     setTasks([...tasks, { id: Date.now(), text: input }]);
     setInput("");
   };
@@ -43,8 +43,8 @@ export default function TodoApp() {
     );
     cancelEdit();
   };
- 
-  
+
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-600 p-4">
       <div className="bg-gray-100 p-6 rounded-2xl shadow-lg w-full max-w-md">
@@ -73,10 +73,7 @@ export default function TodoApp() {
               key={task.id}
               className="flex justify-between items-center bg-gray-50 px-4 py-2 rounded-lg shadow-sm"
             >
-
-
-
-               {editId === task.id ? (
+              {editId === task.id ? (
                 <>
                   <input
                     type="text"
@@ -117,7 +114,7 @@ export default function TodoApp() {
                     </button>
                   </div>
                 </>
-              )} 
+              )}
             </li>
           ))}
         </ul>
